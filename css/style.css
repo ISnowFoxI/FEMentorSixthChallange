@@ -1,0 +1,161 @@
+/*The designs were created to the following widths:
+
+Mobile: 375px
+Desktop: 1440px
+
+*/
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Overpass", "Ubuntu", sans-serif;
+}
+html body header {
+  background: #ff8f70;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 2rem 0;
+}
+html body header nav .hamburgerButton {
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-image: url(/images/icon-hamburger.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+html body header nav .hamburgerButton:hover {
+  filter: invert(0.1);
+}
+html body header nav .hamburgerButtonClicked {
+  background-image: url(/images/icon-close.svg);
+  transform: rotate(180deg);
+}
+html body header nav .menus {
+  display: block;
+  position: absolute;
+  background-color: white;
+  left: 2.4rem;
+  right: 2.4rem;
+  top: 12.4rem;
+  transition: max-height 0.25s ease-in-out;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transform-origin: 0% 0%;
+  transform: translate(120%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+html body header nav .menus .mainMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.8rem;
+  padding-bottom: 1rem;
+  margin: 2rem 2rem;
+  border-bottom: 0.2rem solid #e9e9ec;
+}
+html body header nav .menus .mainMenu li {
+  margin: 0 auto;
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+html body header nav .menus .mainMenu li a {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #1f3f5b;
+}
+html body header nav .menus .mainMenu li .mainLinks::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-image: url(/images/icon-arrow-dark.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: 0.5rem;
+  transition: transform 0.1s ease-in-out;
+}
+html body header nav .menus .mainMenu li .mainLinks:focus {
+  opacity: 0.8;
+}
+html body header nav .menus .mainMenu li .mainLinks:focus::after {
+  transform: rotate(180deg);
+}
+html body header nav .menus .mainMenu li .dropdown {
+  display: none;
+}
+html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown {
+  font-size: 1.6rem;
+  opacity: 0.8;
+  margin-top: 1.5rem;
+  display: block;
+  background-color: #e9e9ec;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown li {
+  padding: 1rem;
+}
+html body header nav .menus .mainMenu li a:hover {
+  opacity: 1;
+  color: #ff8f70;
+}
+html body header nav .menus .LoginAndSingIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.8rem;
+  padding-bottom: 1rem;
+  margin: 2rem 2rem;
+}
+html body header nav .menus .LoginAndSingIn li {
+  margin: 0 auto;
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+html body header nav .menus .LoginAndSingIn li a {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #1f3f5b;
+  max-width: 14rem;
+}
+html body header nav .menus .LoginAndSingIn li:last-child a {
+  font-family: "Ubuntu", sans-serif;
+  line-height: 5rem;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: bold;
+  height: 5rem;
+  border-radius: 5rem;
+  background: linear-gradient(to right, #ff8f70, #ff3d54);
+}
+html body header nav .menusIsOpen {
+  transform: none;
+  max-height: 50rem;
+  transition: max-height 0.25s ease-in-out;
+}
+html body main {
+  background-color: #ff8f70;
+  color: #ff8f70;
+}
+html body main a {
+  color: #ff8f70;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,269 @@
+//* Front-end Style Guide
+//? Layout
+
+/*The designs were created to the following widths:
+
+Mobile: 375px
+Desktop: 1440px
+
+*/
+
+//! Colors
+
+//? Primary
+
+// Light red (CTA text): hsl(356, 100%, 66%)
+// Very light red (CTA hover background): hsl(355, 100%, 74%)
+// Very dark blue (headings): hsl(208, 49%, 24%)
+
+$lightRed: hsl(356,100%,66%);
+$veryLightRed: hsl(355,100%,74%);
+$veryDarkBlue: hsl(208,49%,24%);
+
+
+//? Neutral
+
+// White (text): hsl(0, 0%, 100%)
+// Grayish blue (footer text): hsl(240, 2%, 79%)
+// Very dark grayish blue (body copy): hsl(207, 13%, 34%)
+// Very dark black blue (footer background): hsl(240, 10%, 16%)
+
+$white:hsl(0,0%,100%);
+$grayishBlue: hsl(240,7%,92%);
+$veryDarkGrayishBlue: hsl(207,13%,34%);
+$veryDarkBlackBlue: hsl(240,10%,16%);
+
+//? Gradient
+
+//* Background gradient - Intro/CTA mobile nav:
+
+//Very light red: hsl(13, 100%, 72%)
+//Light red: hsl(353, 100%, 62%)
+
+$veryLightRed: hsl(13,100%,72%);
+$lightRed: hsl(353,100%,62%);
+
+
+//* Background gradient - body:
+
+// Very dark gray blue: hsl(237, 17%, 21%)
+// Very dark desaturated blue: hsl(237, 23%, 32%)
+
+$veryDarkGrayBlue: hsl(237,17%,21%);
+$veryDarkDesaturatedBlur: hsl(237,23%,32%);
+
+//? Typography
+
+//* Body Copy
+
+// Font size: 16px
+
+$fontSize:1.6rem;
+$fontSizeOnePointEight: 1.8rem;
+//* Fonts
+
+// Family: [Overpass](https://fonts.google.com/specimen/Overpass?preview.text_type=custom)
+// Weights: 300, 600
+
+// Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu?preview.text_type=custom)
+// Weights: 400, 500, 700
+
+$fontFamily: 'Overpass','Ubuntu' ,sans-serif;
+$fontFamilyUbuntu: 'Ubuntu', sans-serif;
+//? Variables 
+$borderRadius: 0.5rem;
+
+$buttonHeight: 5rem;
+$buttonWidth: 14rem;
+
+
+*,*::before,*::after { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html { 
+    font-size: 10px;
+    font-family: $fontFamily;
+
+   
+    body { 
+      
+        header { 
+            background: $veryLightRed  ;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5rem 2rem 0;
+            
+            nav { 
+                .hamburgerButton { 
+                    display: block;
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    background-image: url(/images/icon-hamburger.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    cursor: pointer;
+                    transition: transform 0.1s ease-in-out;
+                    &:hover { 
+                        filter: invert(0.1);
+                    }
+                }
+
+                .hamburgerButtonClicked { 
+                    background-image: url(/images/icon-close.svg);
+                    transform: rotate(180deg);
+                }
+
+                .menus { 
+                    display: block;
+                    position: absolute;
+                    background-color: $white;
+                    left: 2.4rem;
+                    right: 2.4rem;
+                    top: 12.4rem;
+                    transition: max-height 0.25s ease-in-out;
+                    border-radius: $borderRadius;
+                    font-weight: bold;
+                    transform-origin: 0% 0%;
+                    transform: translate(120%, 0);
+                    
+                    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+                    .mainMenu {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        font-size: $fontSizeOnePointEight;
+                        padding-bottom: 1rem;
+                        margin: 2rem 2rem;
+                        border-bottom: 0.2rem solid $grayishBlue;
+                        li {
+                            margin: 0 auto;
+                            list-style-type: none;
+                            width: 100%;
+                            text-align: center;
+                            padding: 1.5rem 0;
+
+                            a { 
+                                display: block;
+                                margin: 0 auto;
+                                text-decoration: none ;
+                                color: $veryDarkBlue;
+                            }
+
+                            .mainLinks { 
+                               
+                               &::after  {
+                                   content: ''; 
+                                    display: inline-block;
+                                    position: absolute;
+                                    background-image: url(/images/icon-arrow-dark.svg);
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    height: $fontSize;
+                                    width: $fontSize;
+                                    margin-left: 0.5rem;
+                                    transition: transform 0.1s ease-in-out;
+                                    
+                                }
+
+                            }
+                            .mainLinks:focus { 
+                                opacity: 0.8;
+
+                                &::after { 
+                                    transform: rotate(180deg);
+                                }
+                            }
+                           
+            
+                            
+                           
+                            .dropdown { 
+                                display: none;
+                            }
+                           
+                            .mainLinks:focus ~ .dropdown {
+                                font-size: $fontSize;
+                                opacity: 0.8;
+                                margin-top: 1.5rem; 
+                                display: block;
+                                background-color: $grayishBlue;
+                                border-radius: $borderRadius;
+                                padding: 1rem;
+
+                                li { 
+                                    padding: 1rem;
+                                }
+                            }
+                             a:hover { 
+                                opacity: 1;
+                                color: $veryLightRed;
+                            }
+                        }
+                    }                    
+
+                    .LoginAndSingIn { 
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        font-size: $fontSizeOnePointEight;
+                        padding-bottom: 1rem;
+                        margin: 2rem 2rem;
+                        li { 
+                          
+                                margin: 0 auto;
+                                list-style-type: none;
+                                width: 100%;
+                                text-align: center;
+                                padding: 1rem 0;
+    
+                                a { 
+                                    display: block;
+                                    margin: 0 auto;
+                                    text-decoration: none ;
+                                    color: $veryDarkBlue;
+                                    max-width: $buttonWidth;
+                                }
+
+                                &:last-child{ 
+                                  a { 
+                                      font-family: $fontFamilyUbuntu;
+                                      line-height: $buttonHeight;
+                                      font-size: $fontSize;
+                                      color: white;
+                                      font-weight: bold;
+                                      height: $buttonHeight;
+                                      border-radius: 5rem;
+                                      background:linear-gradient( to right ,$veryLightRed, $lightRed);
+                                  }
+                                }
+                        }
+                    }
+
+                }
+                .menusIsOpen { 
+                    transform: none;
+                    max-height: 50rem;
+                    transition: max-height 0.25s ease-in-out;
+                   
+                }
+            }
+
+
+   }
+
+    main { 
+        background-color: $veryLightRed;
+        color: $veryLightRed;//
+        a { 
+            color: $veryLightRed;//
+        }
+    }
+}
+}
