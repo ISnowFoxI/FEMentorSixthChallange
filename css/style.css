@@ -10,16 +10,24 @@ Desktop: 1440px
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   font-size: 10px;
   font-family: "Overpass", "Ubuntu", sans-serif;
 }
 html body header {
-  background: #ff8f70;
   display: flex;
+  position: absolute;
+  width: 100vw;
   justify-content: space-between;
   align-items: center;
   padding: 5rem 2rem 0;
+}
+html body header .logo {
+  height: 3.4rem;
 }
 html body header nav .hamburgerButton {
   display: block;
@@ -70,7 +78,6 @@ html body header nav .menus .mainMenu li {
 html body header nav .menus .mainMenu li a {
   display: block;
   margin: 0 auto;
-  text-decoration: none;
   color: #1f3f5b;
 }
 html body header nav .menus .mainMenu li .mainLinks::after {
@@ -83,7 +90,7 @@ html body header nav .menus .mainMenu li .mainLinks::after {
   height: 1.6rem;
   width: 1.6rem;
   margin-left: 0.5rem;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 html body header nav .menus .mainMenu li .mainLinks:focus {
   opacity: 0.8;
@@ -92,9 +99,16 @@ html body header nav .menus .mainMenu li .mainLinks:focus::after {
   transform: rotate(180deg);
 }
 html body header nav .menus .mainMenu li .dropdown {
-  display: none;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out;
+}
+html body header nav .menus .mainMenu li .dropdown li {
+  visibility: hidden;
+  opacity: 0;
 }
 html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown {
+  max-height: 30rem;
+  transition: max-height 0.2s ease-in-out;
   font-size: 1.6rem;
   opacity: 0.8;
   margin-top: 1.5rem;
@@ -104,11 +118,15 @@ html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown {
   padding: 1rem;
 }
 html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown li {
+  visibility: visible;
+  opacity: 1;
   padding: 1rem;
+  transition: opacity 0.4s ease-in-out;
+  transition-delay: 0.2s;
 }
 html body header nav .menus .mainMenu li a:hover {
   opacity: 1;
-  color: #ff8f70;
+  color: #ff7a85;
 }
 html body header nav .menus .LoginAndSingIn {
   display: flex;
@@ -129,7 +147,6 @@ html body header nav .menus .LoginAndSingIn li {
 html body header nav .menus .LoginAndSingIn li a {
   display: block;
   margin: 0 auto;
-  text-decoration: none;
   color: #1f3f5b;
   max-width: 14rem;
 }
@@ -141,7 +158,8 @@ html body header nav .menus .LoginAndSingIn li:last-child a {
   font-weight: bold;
   height: 5rem;
   border-radius: 5rem;
-  background: linear-gradient(to right, #ff8f70, #ff3d54);
+  background: #ff7a85;
+  background: linear-gradient(to right, #ff7a85, #ff525d);
 }
 html body header nav .menusIsOpen {
   left: 2.4rem;
@@ -149,12 +167,55 @@ html body header nav .menusIsOpen {
   transform: translate(0, 0);
   transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-html body main {
-  background-color: #ff8f70;
-  color: #ff8f70;
+html body main .welcomeContainer {
+  background: #ff7a85;
+  background-image: url(/images/bg-pattern-intro.svg), linear-gradient(#ff8f70 20%, #ff3d54);
+  background-size: 300%;
+  background-position: right 63% bottom 65%;
+  background-repeat: no-repeat;
+  border-radius: 0 0 0 10rem;
+  text-align: center;
+  padding: 10rem 3rem;
 }
-html body main a {
-  color: #ff8f70;
+html body main .welcomeContainer h1 {
+  color: white;
+  font-size: 3.4rem;
+  padding-top: 9.5rem;
+}
+html body main .welcomeContainer p {
+  padding-top: 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+}
+html body main .welcomeContainer a {
+  display: inline-block;
+  color: #1f3f5b;
+  min-width: 14rem;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 5rem;
+  border-radius: 5rem;
+  margin: 4.5rem 0.5rem;
+}
+html body main .welcomeContainer .startForFree {
+  background-color: white;
+  color: #ff525d;
+}
+html body main .welcomeContainer .startForFree:hover {
+  background-color: #ff7a85;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+html body main .welcomeContainer .learnMore {
+  border: 0.1rem solid white;
+  color: white;
+}
+html body main .welcomeContainer .learnMore:hover {
+  background-color: white;
+  color: #ff7a85;
+  transition: all 0.2s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */
