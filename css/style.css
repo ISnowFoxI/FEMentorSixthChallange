@@ -120,8 +120,8 @@ html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown li {
   visibility: visible;
   opacity: 1;
   padding: 1rem;
-  transition: opacity 0.4s ease-in-out;
-  transition-delay: 0.2s;
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.1s;
 }
 html body header nav .menus .mainMenu li a:hover {
   opacity: 1;
@@ -229,6 +229,9 @@ html body main p {
   padding: 1.8rem 3.5rem;
   text-align: center;
 }
+html body main .futureDesing {
+  margin-top: 15rem;
+}
 html body main .futureDesing picture img {
   width: 100%;
   margin-top: 4.5rem;
@@ -240,23 +243,29 @@ html body main .StateOfArt {
   position: relative;
   color: white;
   background: #2c2d3f;
-  background: linear-gradient(#2c2d3f, #3f4164);
+  background: url(/images/bg-pattern-circles.svg) no-repeat center -25rem, linear-gradient(#2c2d3f, #3f4164);
+  background-size: 170%;
+  background-repeat: no-repeat;
   border-radius: 0 10rem 0 10rem;
 }
 html body main .StateOfArt picture img {
   width: 100%;
   display: block;
-  position: relative;
+  position: absolute;
+  top: -18rem;
 }
 html body main .StateOfArt h2 {
+  padding-top: 25rem;
+  position: relative;
   font-size: 3.4rem;
   color: white;
 }
 html body main .StateOfArt p {
-  padding-bottom: 10rem;
+  padding-bottom: 15rem;
 }
 html body main .FreeAndOpen {
   overflow-x: hidden;
+  margin-top: 5rem;
 }
 html body main .FreeAndOpen picture img {
   width: 100%;
@@ -270,11 +279,23 @@ html body footer {
   padding: 5rem;
   border-radius: 0 6rem 0 0;
   text-align: center;
+  color: white;
+  font-size: 1.6rem;
   background-color: #25252d;
 }
 html body footer .footerLogo {
   height: 3.5rem;
   margin-bottom: 3rem;
+}
+html body footer .attr {
+  position: relative;
+  margin-top: 2rem;
+}
+html body footer .attr a {
+  color: white;
+}
+html body footer .attr a:hover {
+  color: #ff7a85;
 }
 html body footer nav {
   font-size: 1.6rem;
