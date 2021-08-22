@@ -48,16 +48,14 @@ html body header nav .hamburgerButtonClicked {
   transform: rotate(180deg);
 }
 html body header nav .menus {
-  display: block;
+  display: none;
   position: absolute;
   background-color: white;
-  left: 100vw;
-  right: -100vw;
+  left: 2.4rem;
+  right: 2.4rem;
   top: 12.4rem;
   border-radius: 0.5rem;
   font-weight: bold;
-  transform: translate(120%, 0);
-  transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 html body header nav .menus .mainMenu {
   display: flex;
@@ -163,10 +161,7 @@ html body header nav .menus .LoginAndSingIn li:last-child a {
   background: linear-gradient(to right, #ff7a85, #ff525d);
 }
 html body header nav .menusIsOpen {
-  left: 2.4rem;
-  right: 2.4rem;
-  transform: translate(0, 0);
-  transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  display: inline-block;
 }
 html body main .welcomeContainer {
   background: #ff7a85;
@@ -259,6 +254,9 @@ html body main .StateOfArt h2 {
 }
 html body main .StateOfArt p {
   padding-bottom: 10rem;
+}
+html body main .FreeAndOpen {
+  overflow-x: hidden;
 }
 html body main .FreeAndOpen picture img {
   width: 100%;
