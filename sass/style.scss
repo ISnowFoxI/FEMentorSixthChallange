@@ -1,104 +1,66 @@
-//* Front-end Style Guide
-//? Layout
+$lightRed: hsl(356, 100%, 66%);
+$veryLightRed: hsl(355, 100%, 74%);
+$veryDarkBlue: hsl(208, 49%, 24%);
 
-/*The designs were created to the following widths:
+$white: hsl(0, 0%, 100%);
+$grayishBlue: hsl(240, 7%, 92%);
+$veryDarkGrayishBlue: hsl(207, 13%, 34%);
+$veryDarkBlackBlue: hsl(240, 10%, 16%);
 
-Mobile: 375px
-Desktop: 1440px
+$BgveryLightRed: hsl(13, 100%, 72%);
+$BglightRed: hsl(353, 100%, 62%);
 
-*/
+$veryDarkGrayBlue: hsl(237, 17%, 21%);
+$veryDarkDesaturatedBlur: hsl(237, 23%, 32%);
 
-//! Colors
-
-//? Primary
-
-// Light red (CTA text): hsl(356, 100%, 66%)
-// Very light red (CTA hover background): hsl(355, 100%, 74%)
-// Very dark blue (headings): hsl(208, 49%, 24%)
-
-$lightRed: hsl(356,100%,66%);
-$veryLightRed: hsl(355,100%,74%);
-$veryDarkBlue: hsl(208,49%,24%);
+$fontSize1: 1.6rem;
+$fontSize2: 1.8rem;
+$fontSize2_6: 2.6rem;
+$fontSize3: 3.4rem;
 
 
-//? Neutral
-
-// White (text): hsl(0, 0%, 100%)
-// Grayish blue (footer text): hsl(240, 2%, 79%)
-// Very dark grayish blue (body copy): hsl(207, 13%, 34%)
-// Very dark black blue (footer background): hsl(240, 10%, 16%)
-
-$white:hsl(0,0%,100%);
-$grayishBlue: hsl(240,7%,92%);
-$veryDarkGrayishBlue: hsl(207,13%,34%);
-$veryDarkBlackBlue: hsl(240,10%,16%);
-
-//? Gradient
-
-//* Background gradient - Intro/CTA mobile nav:
-
-//Very light red: hsl(13, 100%, 72%)
-//Light red: hsl(353, 100%, 62%)
-
-$veryLightRed: hsl(13,100%,72%);
-$lightRed: hsl(353,100%,62%);
-
-
-//* Background gradient - body:
-
-// Very dark gray blue: hsl(237, 17%, 21%)
-// Very dark desaturated blue: hsl(237, 23%, 32%)
-
-$veryDarkGrayBlue: hsl(237,17%,21%);
-$veryDarkDesaturatedBlur: hsl(237,23%,32%);
-
-//? Typography
-
-//* Body Copy
-
-// Font size: 16px
-
-$fontSize:1.6rem;
-$fontSizeOnePointEight: 1.8rem;
-//* Fonts
-
-// Family: [Overpass](https://fonts.google.com/specimen/Overpass?preview.text_type=custom)
-// Weights: 300, 600
-
-// Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu?preview.text_type=custom)
-// Weights: 400, 500, 700
-
-$fontFamily: 'Overpass','Ubuntu' ,sans-serif;
-$fontFamilyUbuntu: 'Ubuntu', sans-serif;
-//? Variables 
+$fontFamily: "Overpass", "Ubuntu", sans-serif;
+$fontFamilyUbuntu: "Ubuntu", sans-serif;
+//? Variables
 $borderRadius: 0.5rem;
+$borderRadiusButton: 5rem;
+$boredRadiusBg: 10rem;
+$boredRadiusBg2: 6rem;
 
 $buttonHeight: 5rem;
 $buttonWidth: 14rem;
+$buttonWidth2: 30rem;
 
-
-*,*::before,*::after { 
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-html { 
+a {
+    text-decoration: none;
+}
+html {
     font-size: 10px;
     font-family: $fontFamily;
+    overflow-x: hidden;
 
-   
-    body { 
-      
-        header { 
-            background: $veryLightRed  ;
+    body {
+        header {
+            z-index: 1;
             display: flex;
+            position: absolute;
+            width: 100vw;
             justify-content: space-between;
             align-items: center;
-            padding: 5rem 2rem 0;
-            
-            nav { 
-                .hamburgerButton { 
+            padding: 5.5rem 2.5rem 0;
+            .logo {
+                height: 3.4rem;
+            }
+
+            nav {
+                .hamburgerButton {
                     display: block;
                     width: 3.2rem;
                     height: 3.2rem;
@@ -106,38 +68,33 @@ html {
                     background-repeat: no-repeat;
                     background-position: center;
                     cursor: pointer;
-                    transition: transform 0.1s ease-in-out;
-                    &:hover { 
+                    transition: transform 0.2s ease-in-out;
+                    &:hover {
                         filter: invert(0.1);
                     }
                 }
 
-                .hamburgerButtonClicked { 
+                .hamburgerButtonClicked {
                     background-image: url(/images/icon-close.svg);
                     transform: rotate(180deg);
                 }
 
-                .menus { 
-                    display: block;
+                .menus {
+                    display: none;
                     position: absolute;
                     background-color: $white;
                     left: 2.4rem;
                     right: 2.4rem;
                     top: 12.4rem;
-                    transition: max-height 0.25s ease-in-out;
                     border-radius: $borderRadius;
                     font-weight: bold;
-                    transform-origin: 0% 0%;
-                    transform: translate(120%, 0);
-                    
-                    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 
                     .mainMenu {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         flex-direction: column;
-                        font-size: $fontSizeOnePointEight;
+                        font-size: $fontSize2;
                         padding-bottom: 1rem;
                         margin: 2rem 2rem;
                         border-bottom: 0.2rem solid $grayishBlue;
@@ -148,122 +105,642 @@ html {
                             text-align: center;
                             padding: 1.5rem 0;
 
-                            a { 
+                            a {
                                 display: block;
                                 margin: 0 auto;
-                                text-decoration: none ;
                                 color: $veryDarkBlue;
                             }
 
-                            .mainLinks { 
-                               
-                               &::after  {
-                                   content: ''; 
+                            .mainLinks {
+                                &::after {
+                                    content: "";
                                     display: inline-block;
                                     position: absolute;
                                     background-image: url(/images/icon-arrow-dark.svg);
                                     background-position: center;
                                     background-repeat: no-repeat;
-                                    height: $fontSize;
-                                    width: $fontSize;
+                                    height: $fontSize1;
+                                    width: $fontSize1;
                                     margin-left: 0.5rem;
-                                    transition: transform 0.1s ease-in-out;
-                                    
+                                    transition: transform 0.2s ease-in-out;
                                 }
-
                             }
-                            .mainLinks:focus { 
+                            .mainLinks:focus {
                                 opacity: 0.8;
 
-                                &::after { 
+                                &::after {
                                     transform: rotate(180deg);
                                 }
                             }
-                           
-            
-                            
-                           
-                            .dropdown { 
-                                display: none;
+
+                            .dropdown {
+                                max-height: 0;
+                                transition: max-height 0.2s ease-in-out;
+                                li {
+                                    visibility: hidden;
+                                    opacity: 0;
+                                }
                             }
-                           
+
                             .mainLinks:focus ~ .dropdown {
-                                font-size: $fontSize;
+                                max-height: 30rem;
+                                transition: max-height 0.2s ease-in-out;
+                                font-size: $fontSize1;
                                 opacity: 0.8;
-                                margin-top: 1.5rem; 
+                                margin-top: 1.5rem;
                                 display: block;
                                 background-color: $grayishBlue;
                                 border-radius: $borderRadius;
                                 padding: 1rem;
 
-                                li { 
+                                li {
+                                    visibility: visible;
+                                    opacity: 1;
                                     padding: 1rem;
+                                    transition: opacity 0.3s ease-in-out;
+                                    transition-delay: 0.1s;
                                 }
                             }
-                             a:hover { 
+                            a:hover {
                                 opacity: 1;
                                 color: $veryLightRed;
                             }
                         }
-                    }                    
+                    }
 
-                    .LoginAndSingIn { 
+                    .LoginAndSingIn {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         flex-direction: column;
-                        font-size: $fontSizeOnePointEight;
+                        font-size: $fontSize2;
                         padding-bottom: 1rem;
                         margin: 2rem 2rem;
-                        li { 
-                          
-                                margin: 0 auto;
-                                list-style-type: none;
-                                width: 100%;
-                                text-align: center;
-                                padding: 1rem 0;
-    
-                                a { 
-                                    display: block;
-                                    margin: 0 auto;
-                                    text-decoration: none ;
-                                    color: $veryDarkBlue;
-                                    max-width: $buttonWidth;
-                                }
+                        li {
+                            margin: 0 auto;
+                            list-style-type: none;
+                            width: 100%;
+                            text-align: center;
+                            padding: 1rem 0;
 
-                                &:last-child{ 
-                                  a { 
-                                      font-family: $fontFamilyUbuntu;
-                                      line-height: $buttonHeight;
-                                      font-size: $fontSize;
-                                      color: white;
-                                      font-weight: bold;
-                                      height: $buttonHeight;
-                                      border-radius: 5rem;
-                                      background:linear-gradient( to right ,$veryLightRed, $lightRed);
-                                  }
+                            a {
+                                display: block;
+                                margin: 0 auto;
+                                color: $veryDarkBlue;
+                                max-width: $buttonWidth;
+                            }
+
+                            &:last-child {
+                                a {
+                                    font-family: $fontFamilyUbuntu;
+                                    line-height: $buttonHeight;
+                                    font-size: $fontSize1;
+                                    color: white;
+                                    font-weight: bold;
+                                    height: $buttonHeight;
+                                    border-radius: $borderRadiusButton;
+                                    background: $veryLightRed;
+                                    background: linear-gradient(to right, $veryLightRed, $lightRed);
                                 }
+                            }
                         }
                     }
-
                 }
-                .menusIsOpen { 
-                    transform: none;
-                    max-height: 50rem;
-                    transition: max-height 0.25s ease-in-out;
+                .menusIsOpen {
+                    display: inline-block;
+                }
+            }
+        }
+
+        main {
+            .welcomeContainer {
+                background: $veryLightRed;
+                background-image: url(/images/bg-pattern-intro.svg), linear-gradient($BgveryLightRed 20%, $BglightRed);
+                background-size: 300%;
+                background-position: right 63% bottom 65%;
+                background-repeat: no-repeat;
+                border-radius: 0 0 0 $boredRadiusBg;
+                text-align: center;
+                padding: 10rem 0;
+                h1 {
+                    color: $white;
+                    font-size: $fontSize3;
+                    padding: 9.5rem 3rem 0 3rem;
+                }
+
+                p {
+                    padding: 1.5rem 3rem 0 3rem;
+                    color: white;
+                    font-size: $fontSize2;
+                    margin-bottom: 4rem;
+                }
+
+                a {
+                    display: inline-block;
+                    color: $veryDarkBlue;
+                    min-width: $buttonWidth;
+                    font-family: $fontFamilyUbuntu;
+                    line-height: $buttonHeight;
+                    font-size: $fontSize1;
+                    font-weight: bold;
+                    height: $buttonHeight;
+                    border-radius: $borderRadiusButton;
+                    margin: 0.5rem 0.5rem;
+                }
+
+                .startForFree {
+                    background-color: $white;
+                    color: $lightRed;
+
+                    &:hover {
+                        background-color: $veryLightRed;
+                        color: $white;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+
+                .learnMore {
+                    border: 0.1rem solid $white;
+                    color: $white;
+                    &:hover {
+                        background-color: $white;
+                        color: $veryLightRed;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+
+            h2 {
+                color: $veryDarkBlue;
+                font-size: $fontSize2_6;
+                padding: 0 4rem;
+                margin-top: 5rem;
+                text-align: center;
+            }
+
+            p {
+                font-weight: 300;
+                font-size: $fontSize1;
+                line-height: $fontSize2_6;
+                letter-spacing: 0.02rem;
+                padding: 1.8rem 3.5rem;
+                text-align: center;
+            }
+
+            .futureDesing {
+                margin-top: 15rem;
+                picture {
+                    img {
+                        width: 100%;
+                        margin-top: 4.5rem;
+                        display: block;
+                        position: relative;
+                    }
+                }
+            }
+
+            .StateOfArt {
+                margin-top: 25rem;
+                position: relative;
+                color: $white;
+                background: $veryDarkGrayBlue;
+                background: url(/images/bg-pattern-circles.svg) no-repeat center -25rem,
+                    linear-gradient($veryDarkGrayBlue, $veryDarkDesaturatedBlur);
+                background-size: 170%;
+                background-repeat: no-repeat;
+                border-radius: 0 $boredRadiusBg 0 $boredRadiusBg;
+                picture {
+                    position: relative;
+                    top: -18rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        display: block;
+                        position: relative;
+                    }
+                }
+                h2 {
+                    top: -18rem;
+                    position: relative;
+                    font-size: $fontSize3;
+                    color: $white;
+                }
+                p {
+                    position: relative;
+                    top: -18rem;
+                }
+            }
+
+            .FreeAndOpen {
+                overflow-x: hidden;
+                margin-top: 5rem;
+
+                picture {
+                    img {
+                        width: 100%;
+                        transform: scale(1.3);
+                        margin-top: 4.5rem;
+                        display: block;
+                        position: relative;
+                    }
+                }
+            }
+        }
+
+        footer {
+            margin-top: 8rem;
+            padding: 5rem;
+            border-radius: 0 $boredRadiusBg2 0 0;
+            text-align: center;
+            color: white;
+            font-size: $fontSize1;
+            .footerLogo {
+                height: 3.5rem;
+                margin-bottom: 3rem;
+            }
+            .attr {
+                position: relative;
+                margin-top: 2rem;
+                a {
+                    color: $white;
+                    &:hover {
+                        color: $veryLightRed;
+                    }
+                }
+            }
+
+            background-color: $veryDarkBlackBlue;
+            nav {
+                font-size: $fontSize1;
+                font-weight: bold;
+                ul {
+                    li {
+                        list-style: none;
+                        padding: 4rem 0 2rem;
+                        a {
+                            color: $white;
+                            &:hover {
+                                color: $lightRed;
+                            }
+                        }
+                    }
+                    .subMenus {
+                        font-weight: normal;
+                        opacity: 0.8;
+                        li {
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(min-width:1000px) { 
+    html { 
+        body { 
+            header {
+                justify-content: flex-start;
+                align-self: center;
+                max-width: 144rem;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                nav {
+
+                    flex-grow: 1;
+                    .hamburgerButton {
+                        display: none;
+                    }
+
+                    .menus {
+                        display: flex;
+                        justify-content: space-between;
+                        position: relative;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        border-radius: 0;
+                        flex-grow: 3;
+                        background: none;
+
+                        .mainMenu {
+                            flex-direction: row;
+                            font-size: $fontSize1;
+                            padding-bottom: 0;
+                            margin: 0;
+                            border-bottom: none;
+
+                            li {
+                                padding: 0 3rem;
+
+                                a {
+                                    color: $white;
+
+                                    &:hover {
+                                        color: $white;
+                                        text-decoration: underline;
+                                    }
+                                }
+
+                                .mainLinks {
+                                    position: relative;
+                                    &::after {
+                                        background-image: url(/images/icon-arrow-light.svg);
+                                    }
+                                }
+                                .mainLinks:focus {
+                                    opacity: 1;
+                                    text-decoration: underline;
+                                }
+
+                                .dropdown {
+                                    position: absolute;
+                                    max-height: 0;
+                                 
+                                }
+
+                                .mainLinks:focus ~ .dropdown {
+                                   
+                                    opacity: 1;
+                                    position: absolute;
+                                    background-color: $white;
+                                    min-width: 15rem;
+
+                                    li {
+                                        text-align: left;
+                                        a {
+                                            color: $veryDarkBlackBlue;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .LoginAndSingIn {
+                            font-family: $fontFamilyUbuntu;
+                            justify-content: flex-start;
+                            flex-direction: row;
+                            padding-bottom: 0;
+                            margin: 0;
+
+                            li {
+                                a {
+                                    color: $white;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+
+                                &:last-child {
+                                    a {
+                                        min-width: 14rem;
+                                        color: $lightRed;
+                                        background: $white;
+                                        margin: 0 2rem;
+                                        &:hover {
+                                            color: $white;
+                                            background: $veryLightRed;
+                                            text-decoration: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                    
                 }
             }
 
+            main {
+                .welcomeContainer {
+                    background: $veryLightRed;
+                    background-image: url(/images/bg-pattern-intro.svg),
+                        linear-gradient(90deg,$BgveryLightRed 20%, $BglightRed);
+                
+                    background-size: 200%;
+                    background-position: right 75% bottom 50%;
+                    background-repeat: no-repeat;
+                    border-radius: 0 0 0 $boredRadiusBg;
+                    text-align: center;
+                    padding: 10rem 0;
+                    h1 {
+                        color: $white;
+                        font-size: $fontSize3;
+                        padding: 9.5rem 3rem 0 3rem;
+                    }
 
-   }
+                    p {
+                        padding: 1.5rem 3rem 0 3rem;
+                        color: white;
+                        font-size: $fontSize2;
+                        margin-bottom: 4rem;
+                    }
 
-    main { 
-        background-color: $veryLightRed;
-        color: $veryLightRed;//
-        a { 
-            color: $veryLightRed;//
+                    a {
+                        display: inline-block;
+                        color: $veryDarkBlue;
+                        min-width: $buttonWidth;
+                        font-family: $fontFamilyUbuntu;
+                        line-height: $buttonHeight;
+                        font-size: $fontSize1;
+                        font-weight: bold;
+                        height: $buttonHeight;
+                        border-radius: $borderRadiusButton;
+                        margin: 0.5rem 0.5rem;
+                    }
+
+                    .startForFree {
+                        background-color: $white;
+                        color: $lightRed;
+
+                        &:hover {
+                            background-color: $veryLightRed;
+                            color: $white;
+                            transition: all 0.2s ease-in-out;
+                        }
+                    }
+
+                    .learnMore {
+                        border: 0.1rem solid $white;
+                        color: $white;
+                        &:hover {
+                            background-color: $white;
+                            color: $veryLightRed;
+                            transition: all 0.2s ease-in-out;
+                        }
+                    }
+                }
+
+                h2 {
+                    color: $veryDarkBlue;
+                    font-size: $fontSize2_6;
+                    padding: 0 13%;
+                    margin-top: 5rem;
+                    text-align: left;
+                }
+
+                p {
+                    color:$veryDarkGrayishBlue;
+                    font-weight: 300;
+                    font-size: $fontSize1;
+                    line-height: $fontSize3;
+                    letter-spacing: 0.02rem;
+                    padding: 1.8rem 13%;
+                    text-align: center;
+                }
+
+                .futureDesing {
+                    display: grid; 
+                    grid-template-columns:  repeat(2,50%) ; 
+                    grid-template-areas: "heading heading"
+                                          "aside1  picture"
+                                          "aside2  picture";
+                    p { 
+                        text-align:left ;
+                    }  
+    
+                     .innerHeading { 
+                         text-align: center;
+                         grid-area:heading;
+                        }
+                        .innerSection1 { 
+                            grid-area: aside1;
+                     }
+
+                    .innerSection2 { 
+                        grid-area: aside2;
+                    }
+
+                    picture {
+                        grid-area: picture;
+                    position: relative;
+                    transform: scale(1.3);
+                    left: 22%;
+
+                        img {
+                            grid-area: picture;
+                            width: 100%;
+                            margin-top: 4.5rem;
+                            display: block;
+                            position: relative;
+                        }
+                    }
+                }
+
+                .StateOfArt {
+                    margin-top: 25rem;
+                    position: relative;
+                    color: $white;
+                    background: $veryDarkGrayBlue;
+                    background: url(/images/bg-pattern-circles.svg) no-repeat center -25rem,
+                        linear-gradient($veryDarkGrayBlue, $veryDarkDesaturatedBlur);
+                    background-size: 170%;
+                    background-repeat: no-repeat;
+                    border-radius: 0 $boredRadiusBg 0 $boredRadiusBg;
+                    display: grid;
+                    grid-template-columns:  20%, 70% ; 
+                    grid-template-areas: "image text";
+
+                 
+                    picture {
+                        position: relative;
+                        top: 0rem;
+                        grid-area: image;
+
+                        img {
+                            width: auto;
+                            height: auto;
+                            object-fit: none;
+                            display: block;
+                            position: relative;
+                        }
+                    }
+
+                    .stateSection { 
+                        grid-area: text;
+                    }
+                    h2 {
+                        top: 0rem;
+                        position: relative;
+                        font-size: $fontSize3;
+                        color: $white;
+                    }
+                    p {
+                        position: relative;
+                        top: 0;
+                        font-size: $fontSize1;
+                        color: $white;
+
+                    }
+                }
+
+                .FreeAndOpen {
+                    overflow-x: hidden;
+                    margin-top: 5rem;
+
+                    picture {
+                        img {
+                            width: 100%;
+                            transform: scale(1.3);
+                            margin-top: 4.5rem;
+                            display: block;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+
+            footer {
+                margin-top: 8rem;
+                padding: 5rem;
+                border-radius: 0 $boredRadiusBg2 0 0;
+                text-align: center;
+                color: white;
+                font-size: $fontSize1;
+                .footerLogo {
+                    height: 3.5rem;
+                    margin-bottom: 3rem;
+                }
+                .attr {
+                    position: relative;
+                    margin-top: 2rem;
+                    a {
+                        color: $white;
+                        &:hover {
+                            color: $veryLightRed;
+                        }
+                    }
+                }
+
+                background-color: $veryDarkBlackBlue;
+                nav {
+                    font-size: $fontSize1;
+                    font-weight: bold;
+                    ul {
+                        li {
+                            list-style: none;
+                            padding: 4rem 0 2rem;
+                            a {
+                                color: $white;
+                                &:hover {
+                                    color: $lightRed;
+                                }
+                            }
+                        }
+                        .subMenus {
+                            font-weight: normal;
+                            opacity: 0.8;
+                            li {
+                                padding: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-}
 }

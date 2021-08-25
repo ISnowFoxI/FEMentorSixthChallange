@@ -1,10 +1,6 @@
-/*The designs were created to the following widths:
-
-Mobile: 375px
-Desktop: 1440px
-
-*/
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -20,6 +16,7 @@ html {
   overflow-x: hidden;
 }
 html body header {
+  z-index: 1;
   display: flex;
   position: absolute;
   width: 100vw;
@@ -248,20 +245,26 @@ html body main .StateOfArt {
   background-repeat: no-repeat;
   border-radius: 0 10rem 0 10rem;
 }
-html body main .StateOfArt picture img {
-  width: 100%;
-  display: block;
-  position: absolute;
+html body main .StateOfArt picture {
+  position: relative;
   top: -18rem;
 }
+html body main .StateOfArt picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  position: relative;
+}
 html body main .StateOfArt h2 {
-  padding-top: 25rem;
+  top: -18rem;
   position: relative;
   font-size: 3.4rem;
   color: white;
 }
 html body main .StateOfArt p {
-  padding-bottom: 15rem;
+  position: relative;
+  top: -18rem;
 }
 html body main .FreeAndOpen {
   overflow-x: hidden;
@@ -317,6 +320,294 @@ html body footer nav ul .subMenus {
 }
 html body footer nav ul .subMenus li {
   padding: 0.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+  html body header {
+    justify-content: flex-start;
+    align-self: center;
+    max-width: 144rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  html body header nav {
+    flex-grow: 1;
+  }
+  html body header nav .hamburgerButton {
+    display: none;
+  }
+  html body header nav .menus {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-radius: 0;
+    flex-grow: 3;
+    background: none;
+  }
+  html body header nav .menus .mainMenu {
+    flex-direction: row;
+    font-size: 1.6rem;
+    padding-bottom: 0;
+    margin: 0;
+    border-bottom: none;
+  }
+  html body header nav .menus .mainMenu li {
+    padding: 0 3rem;
+  }
+  html body header nav .menus .mainMenu li a {
+    color: white;
+  }
+  html body header nav .menus .mainMenu li a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  html body header nav .menus .mainMenu li .mainLinks {
+    position: relative;
+  }
+  html body header nav .menus .mainMenu li .mainLinks::after {
+    background-image: url(/images/icon-arrow-light.svg);
+  }
+  html body header nav .menus .mainMenu li .mainLinks:focus {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  html body header nav .menus .mainMenu li .dropdown {
+    position: absolute;
+    max-height: 0;
+  }
+  html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown {
+    opacity: 1;
+    position: absolute;
+    background-color: white;
+    min-width: 15rem;
+  }
+  html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown li {
+    text-align: left;
+  }
+  html body header nav .menus .mainMenu li .mainLinks:focus ~ .dropdown li a {
+    color: #25252d;
+  }
+  html body header nav .menus .LoginAndSingIn {
+    font-family: "Ubuntu", sans-serif;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  html body header nav .menus .LoginAndSingIn li a {
+    color: white;
+  }
+  html body header nav .menus .LoginAndSingIn li a:hover {
+    text-decoration: underline;
+  }
+  html body header nav .menus .LoginAndSingIn li:last-child a {
+    min-width: 14rem;
+    color: #ff525d;
+    background: white;
+    margin: 0 2rem;
+  }
+  html body header nav .menus .LoginAndSingIn li:last-child a:hover {
+    color: white;
+    background: #ff7a85;
+    text-decoration: none;
+  }
+  html body main .welcomeContainer {
+    background: #ff7a85;
+    background-image: url(/images/bg-pattern-intro.svg), linear-gradient(90deg, #ff8f70 20%, #ff3d54);
+    background-size: 200%;
+    background-position: right 75% bottom 50%;
+    background-repeat: no-repeat;
+    border-radius: 0 0 0 10rem;
+    text-align: center;
+    padding: 10rem 0;
+  }
+  html body main .welcomeContainer h1 {
+    color: white;
+    font-size: 3.4rem;
+    padding: 9.5rem 3rem 0 3rem;
+  }
+  html body main .welcomeContainer p {
+    padding: 1.5rem 3rem 0 3rem;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
+  html body main .welcomeContainer a {
+    display: inline-block;
+    color: #1f3f5b;
+    min-width: 14rem;
+    font-family: "Ubuntu", sans-serif;
+    line-height: 5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    height: 5rem;
+    border-radius: 5rem;
+    margin: 0.5rem 0.5rem;
+  }
+  html body main .welcomeContainer .startForFree {
+    background-color: white;
+    color: #ff525d;
+  }
+  html body main .welcomeContainer .startForFree:hover {
+    background-color: #ff7a85;
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
+  html body main .welcomeContainer .learnMore {
+    border: 0.1rem solid white;
+    color: white;
+  }
+  html body main .welcomeContainer .learnMore:hover {
+    background-color: white;
+    color: #ff7a85;
+    transition: all 0.2s ease-in-out;
+  }
+  html body main h2 {
+    color: #1f3f5b;
+    font-size: 2.6rem;
+    padding: 0 13%;
+    margin-top: 5rem;
+    text-align: left;
+  }
+  html body main p {
+    color: #4b5862;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.02rem;
+    padding: 1.8rem 13%;
+    text-align: center;
+  }
+  html body main .futureDesing {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "heading heading" "aside1  picture" "aside2  picture";
+  }
+  html body main .futureDesing p {
+    text-align: left;
+  }
+  html body main .futureDesing .innerHeading {
+    text-align: center;
+    grid-area: heading;
+  }
+  html body main .futureDesing .innerSection1 {
+    grid-area: aside1;
+  }
+  html body main .futureDesing .innerSection2 {
+    grid-area: aside2;
+  }
+  html body main .futureDesing picture {
+    grid-area: picture;
+    position: relative;
+    transform: scale(1.3);
+    left: 22%;
+  }
+  html body main .futureDesing picture img {
+    grid-area: picture;
+    width: 100%;
+    margin-top: 4.5rem;
+    display: block;
+    position: relative;
+  }
+  html body main .StateOfArt {
+    margin-top: 25rem;
+    position: relative;
+    color: white;
+    background: #2c2d3f;
+    background: url(/images/bg-pattern-circles.svg) no-repeat center -25rem, linear-gradient(#2c2d3f, #3f4164);
+    background-size: 170%;
+    background-repeat: no-repeat;
+    border-radius: 0 10rem 0 10rem;
+    display: grid;
+    grid-template-columns: 20%, 70%;
+    grid-template-areas: "image text";
+  }
+  html body main .StateOfArt picture {
+    position: relative;
+    top: 0rem;
+    grid-area: image;
+  }
+  html body main .StateOfArt picture img {
+    width: auto;
+    height: auto;
+    object-fit: none;
+    display: block;
+    position: relative;
+  }
+  html body main .StateOfArt .stateSection {
+    grid-area: text;
+  }
+  html body main .StateOfArt h2 {
+    top: 0rem;
+    position: relative;
+    font-size: 3.4rem;
+    color: white;
+  }
+  html body main .StateOfArt p {
+    position: relative;
+    top: 0;
+    font-size: 1.6rem;
+    color: white;
+  }
+  html body main .FreeAndOpen {
+    overflow-x: hidden;
+    margin-top: 5rem;
+  }
+  html body main .FreeAndOpen picture img {
+    width: 100%;
+    transform: scale(1.3);
+    margin-top: 4.5rem;
+    display: block;
+    position: relative;
+  }
+  html body footer {
+    margin-top: 8rem;
+    padding: 5rem;
+    border-radius: 0 6rem 0 0;
+    text-align: center;
+    color: white;
+    font-size: 1.6rem;
+    background-color: #25252d;
+  }
+  html body footer .footerLogo {
+    height: 3.5rem;
+    margin-bottom: 3rem;
+  }
+  html body footer .attr {
+    position: relative;
+    margin-top: 2rem;
+  }
+  html body footer .attr a {
+    color: white;
+  }
+  html body footer .attr a:hover {
+    color: #ff7a85;
+  }
+  html body footer nav {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  html body footer nav ul li {
+    list-style: none;
+    padding: 4rem 0 2rem;
+  }
+  html body footer nav ul li a {
+    color: white;
+  }
+  html body footer nav ul li a:hover {
+    color: #ff525d;
+  }
+  html body footer nav ul .subMenus {
+    font-weight: normal;
+    opacity: 0.8;
+  }
+  html body footer nav ul .subMenus li {
+    padding: 0.5rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
